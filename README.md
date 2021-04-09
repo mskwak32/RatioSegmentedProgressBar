@@ -21,9 +21,7 @@ val valueList = listOf(10L,20L,50L,90L,30L)
 progressBar.progressDrawable = RatioSegmentedProgressBarDrawable(Color.BLUE, Color.GRAY, valueList, 20f)
 ```
 
-----------------------------------------------------
-How to
-To get a Git project into your build:
+ ## How to get
 
 Step 1. Add the JitPack repository to your build file
 
