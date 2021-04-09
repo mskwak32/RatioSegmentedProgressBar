@@ -1,10 +1,9 @@
 package com.mskwak.ratiosegmentedprogressbar
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.lifecycle.Lifecycle
+import androidx.appcompat.app.AppCompatActivity
 import com.mskwak.ratiosegmentedprogressbar.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
 
@@ -27,16 +26,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initProgressBar() {
-        val valueList = listOf(10L,20L,50L,90L,30L)
+        val valueList = listOf(10L, 20L, 50L, 90L, 30L)
         val maxValue = valueList.sum()
-        binding.progressBar.progressDrawable = RatioSegmentedProgressBarDrawable(Color.BLUE, Color.GRAY, valueList, maxValue, 20f)
+        binding.progressBar.progressDrawable = RatioSegmentedProgressBarDrawable(Color.BLUE, Color.GRAY, valueList, 20f)
         binding.progressBar.max = maxValue.toInt()
         progressJob = CoroutineScope(Dispatchers.Main).launch {
             var progress = 0
             while (progressJob.isActive) {
                 delay(200)
                 progress += 1
-                if(progress > maxValue) progress = 0
+                if (progress > maxValue) progress = 0
                 binding.progressBar.progress = progress
                 binding.progressText.text = progress.toString()
             }

@@ -1,4 +1,4 @@
-include ':RatioSegmentedProgressBar'
+include ':RatioSegmentedProgressBarLib'
 include ':ratio_segmented_progressbar_lib'
 include ':app'
 rootProject.name = "RatioSegmentedProgressBar"

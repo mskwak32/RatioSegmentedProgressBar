@@ -37,7 +37,7 @@ android {
 
 dependencies {
 
-    implementation project(path:':RatioSegmentedProgressBar')
+    implementation project(path: ':RatioSegmentedProgressBarLib')
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
