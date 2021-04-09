@@ -3,25 +3,24 @@ package com.mskwak.ratiosegmentedprogressbar
 import android.graphics.*
 import android.graphics.drawable.Drawable
 import androidx.annotation.ColorInt
-import androidx.annotation.DrawableRes
 
 class RatioSegmentedProgressBarDrawable(
         @ColorInt private val foregroundColor: Int,
         @ColorInt private val backgroundColor: Int,
-        divisionValueList: List<Long>,
-        maxValue: Long,
+        segmentValueList: List<Long>,
         private val gapWidth: Float
 ) : Drawable() {
-    private val numOfSegment: Int = divisionValueList.size
+    private val numOfSegment: Int = segmentValueList.size
     private val paint = Paint()
     private val segment = RectF()
     private val eachRatioList = mutableListOf<Float>()
     private val cumulativeRatioList = mutableListOf<Float>()
     private var sumOfSegmentWidth = 0f
+    private val maxValue: Long = segmentValueList.sum()
 
     init {
         cumulativeRatioList.add(0f)
-        divisionValueList.forEachIndexed { index, value ->
+        segmentValueList.forEachIndexed { index, value ->
             val ratio = value / maxValue.toFloat()
             eachRatioList.add(ratio)
             cumulativeRatioList.add(cumulativeRatioList[index] + ratio)
